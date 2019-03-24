@@ -10,8 +10,41 @@
     {% endblock %}
 </head>
     <main>
-        {% block content %}{% endblock %}
+        {% block content %}
+        <h1>Todo App</h1>
+
+
+        
+        {% endblock %}
     </main>
+    {% include 'layouts/footer.html' %}    
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block head %}
+    <link rel="stylesheet" href="static/styles.css" type="text/css">
+    <title>{% block title %}Todo App{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <h1>{{ self.title() }}</h1>
+
+    </header>
+
+    <main>
+        {% block content %}
+        
+        
+        {% endblock %}
+    </main>
+    <h1>Todo App</h1>
+        
+    <a href="/todo">Task</a>
     {% include 'layouts/footer.html' %}    
 </body>
 </html>

@@ -17,4 +17,15 @@ def create_app(test_config=None): #Factory app
     def index(): 
        return render_template('index.html')
 
+    @app.route('/todo', methods=['GET', 'POST'])
+    def todo():
+
+        task_list = {
+            'Task List': {'Name': '', 'Date': '', 'Time': '', 'Month': '', 'Day': '', 'Completed': '',
+        'Task List 1': {'Name': '', 'Date': '', 'Time': '', 'Month': '', 'Day': '', 'Completed': ''}}
+
+
+        return render_template('todo.html', todo=task_list)
+
+
     return app
