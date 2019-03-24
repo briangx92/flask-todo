@@ -3,6 +3,14 @@
 {% block title %}{% endblock %}
 
 {%block content %}
-<h1>Greetings!</h1>
-
+<h1>Todo!</h1>
+<ul>
+    {% for key, value in list %}
+    <li>{{ key }}</li>
+    
+    <ul>
+        <li>{{ value }}</li>
+    </ul>
+    {% endfor %}
+    </ul>
 {% endblock %}

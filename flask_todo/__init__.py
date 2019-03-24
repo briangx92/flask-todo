@@ -17,13 +17,19 @@ def create_app(test_config=None): #Factory app
     def index(): 
        return render_template('index.html')
 
-    @app.route('/todo')
-    def todo(name="World"):
+    # tasks = []
+    @app.route('/todo', methods=['GET', 'POST'])
+    def todo():
 
-        # for key, value in request.args.items():
-        #     print(f"{key}: {value}")
-        name = request.args.get('name', 'World') # get the request from flask
-        return render_template('todo.html', name=name)
+        task_dict = {
+            'task': {'description': '2', 'date': '3', 'time': '4'
+            },
+            'task 2': {'description': '2', 'date': '3', 'time': '4'
+            }}
+        list = task_dict.items()
+
+        
+        return render_template('todo.html', list=list)
 
     
   
