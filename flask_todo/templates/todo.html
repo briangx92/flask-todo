@@ -1,11 +1,8 @@
 {% extends "layouts/base.html" %}
 
-{% block title %}Todo App{% endblock %}
+{% block title %}{% endblock %}
 
-<h1>Todo App</h1>
-<ul>
-{% for list in task_list.iteritems() %}
-    <li>{{ list }}</li>
-{% endfor %}
+{%block content %}
+<h1>Greetings!</h1>
 
-</ul>
+{% endblock %}
