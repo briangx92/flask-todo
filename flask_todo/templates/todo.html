@@ -3,14 +3,34 @@
 {% block title %}{% endblock %}
 
 {%block content %}
-<h1>Todo!</h1>
-<ul>
-    {% for key, value in list %}
-    <li>{{ key }}</li>
+<h1>To Do!</h1>
+<form action="todo_submit" method="POST">
+    <label for="task">
+        
+        <input type="text" value="{{ task }}" name="task" id="task">Task
+
+    </label>
+
+    <label for="description">
+        <input type="text" name="description" value="{{ description }}" id="description">Description
+    </label>
+
+    <label>
+        <input type="submit" name="submit" id="submit">
+    </label>
     
+    
+
+
+</form>
+<ul>
+    {% for task_lists in task_list %}
+    <li>{{ task_lists.name }}</li>
     <ul>
-        <li>{{ value }}</li>
+        <li>{{ task_lists.description }}</li>
     </ul>
+    
+
     {% endfor %}
-    </ul>
+</ul>
 {% endblock %}

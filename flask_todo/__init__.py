@@ -1,5 +1,5 @@
-from flask import Flask, request, make_response, render_template
-
+from flask import Flask, request, make_response, render_template, redirect, url_for
+from flask_todo.todo import Todos
 
 def create_app(test_config=None): #Factory app
     app = Flask(__name__, instance_relative_config=True) #instantiating object
@@ -17,22 +17,15 @@ def create_app(test_config=None): #Factory app
     def index(): 
        return render_template('index.html')
 
-    # tasks = []
+    task1 = Todos(name='Grocery', description='Get milk')
+    task2 = Todos(name='Clean', description='Clean room')
+    
+    task_list = [task1, task2]
+
     @app.route('/todo', methods=['GET', 'POST'])
     def todo():
-
-        task_dict = {
-            'task': {'description': '2', 'date': '3', 'time': '4'
-            },
-            'task 2': {'description': '2', 'date': '3', 'time': '4'
-            }}
-        list = task_dict.items()
-
         
-        return render_template('todo.html', list=list)
-
-    
-  
+        return render_template('todo.html', task_list=task_list) 
 
 
     return app
