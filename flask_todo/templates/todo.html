@@ -4,7 +4,7 @@
 
 {%block content %}
 <h1>To Do!</h1>
-<form action="todo_submit" method="POST">
+<form action="todo" method="POST">
     <label for="task">
         
         <input type="text" value="{{ task }}" name="task" id="task">Task
@@ -19,15 +19,12 @@
         <input type="submit" name="submit" id="submit">
     </label>
     
-    
-
-
 </form>
 <ul>
     {% for task_lists in task_list %}
     <li>{{ task_lists.name }}</li>
     <ul>
-        <li>{{ task_lists.description }}</li>
+        <li>{{ task_lists.description }} {{ task_lists.time }}</li>
     </ul>
     
 

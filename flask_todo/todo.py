@@ -9,5 +9,6 @@ class Todos(object):
 
     def complete(self, name):
         name.completed = True
-
     
+    
+
