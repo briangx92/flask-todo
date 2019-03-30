@@ -1,7 +1,34 @@
 {% extends "layouts/base.html" %}
 
 {% block title %}Flask Todo{% endblock %}
-<h1>hello</h1>
+<h1>To Do!</h1>
+<form method="POST">
+    <label for="task">Task
+        
+        <input type="text" value="{{ task }}" name="task" id="task">
+
+    </label>
+
+    <label for="description">
+        <input type="text" name="description" value="{{ description }}" id="description">Description
+    </label>
+
+    <label>
+        <input type="submit" name="submit" id="submit">
+    </label>
+    
+</form>
+
+<ul>
+    {% for task_dicts in task_dict %}
+    <li>{{ task_dicts }}</li>
+    <ul>
+        <li>{{ task_dicts.description }} {{ task_dicts.task_date }}</li>
+    </ul>
+    
+
+    {% endfor %}
+</ul>
 {% block content %}
 
 

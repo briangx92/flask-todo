@@ -3,25 +3,9 @@
 {% block title %}{% endblock %}
 
 {%block content %}
-<h1>To Do!</h1>
-<form action="todo" method="POST">
-    <label for="task">
-        
-        <input type="text" value="{{ task }}" name="task" id="task">Task
 
-    </label>
-
-    <label for="description">
-        <input type="text" name="description" value="{{ description }}" id="description">Description
-    </label>
-
-    <label>
-        <input type="submit" name="submit" id="submit">
-    </label>
-    
-</form>
 <ul>
-    {% for task_lists in task_list %}
+    {% for task_lists in task_dict %}
     <li>{{ task_lists.name }}</li>
     <ul>
         <li>{{ task_lists.description }} {{ task_lists.time }}</li>
