@@ -1,6 +1,8 @@
 {% extends "layouts/base.html" %}
 
 {% block title %}Flask Todo{% endblock %}
+
+{% block content %}
 <h1>To Do!</h1>
 <form method="POST">
     <label for="task">Task
@@ -21,16 +23,14 @@
 
 <ul>
     {% for task_dicts in task_dict %}
-    <li>{{ task_dicts }}</li>
+    <li>{{ task_dicts.task }} </li>
     <ul>
-        <li>{{ task_dicts.description }} {{ task_dicts.task_date }}</li>
+        <li>{{ task_dicts.description }} Created on {{ task_dicts.task_date }}</li>
     </ul>
     
 
     {% endfor %}
 </ul>
-{% block content %}
-
 
 {% endblock %}
 

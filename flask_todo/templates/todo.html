@@ -2,16 +2,16 @@
 
 {% block title %}{% endblock %}
 
-{%block content %}
-
+{% block content %}
 <ul>
     {% for task_lists in task_dict %}
-    <li>{{ task_lists.name }}</li>
+    <li>Task: {{ task_lists.task }}</li>
     <ul>
-        <li>{{ task_lists.description }} {{ task_lists.time }}</li>
+        <li>Description: {{ task_lists.description }} {{ task_lists.time }}</li>
+        <li>Is it complete? {{ task_lists.complete }}</li>
     </ul>
     
 
     {% endfor %}
-</ul>
+    </ul>
 {% endblock %}

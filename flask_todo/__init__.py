@@ -1,5 +1,5 @@
-from flask import Flask, request, render_template
-from datetime  import datetime 
+from flask import Flask, request, render_template, make_response
+from datetime  import datetime
 import psycopg2
 
 
@@ -21,10 +21,11 @@ def create_app(): #Factory app
 
 
         if request.method == 'POST':
-            req_task = request.form['task']
+            task = request.form['task']
             description = request.form['description']
-            task_dict = [{'task': req_task, 'description': description, 'time': task_date}]
+            task_dict = [{'task': task, 'description': description, 'time': task_date, 'complete': False}]
             return render_template('todo.html',task_dict=task_dict, task_date=task_date)
+        
 
         
         
@@ -32,7 +33,10 @@ def create_app(): #Factory app
 
         return render_template('index.html')
 
-    
+    @app.route('/todo', methods=['GET', 'POST'])
+    def todo():
+
+        return render_template('todo.html')
     return app
 
 
