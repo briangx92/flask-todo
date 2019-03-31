@@ -30,6 +30,8 @@ def create_app(): #Factory app
 
         cur.execute("INSERT INTO todos (task, created, complete) VALUES (%s,%s,%s)", (task, task_date, False))
         conn.commit()
+        cur.close()
+        conn.close()
         return render_template('index.html')
 
     return app
