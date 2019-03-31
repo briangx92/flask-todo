@@ -25,6 +25,8 @@ def create_app(): #Factory app
             description = request.form['description']
             task_dict = [{'task': task, 'description': description, 'time': task_date, 'complete': False}]
             return render_template('todo.html',task_dict=task_dict, task_date=task_date)
+        else:
+            return render_template('index.html')
         
 
         
@@ -36,6 +38,8 @@ def create_app(): #Factory app
     @app.route('/todo', methods=['GET', 'POST'])
     def todo():
 
+        if request.method == 'GET':
+            return render_template('todo.html')
         return render_template('todo.html')
     return app
 
