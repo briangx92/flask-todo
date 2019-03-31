@@ -25,7 +25,8 @@
     {% for task_lists in task_dict %}
     <li>Task: {{ task_lists.task }}</li>
     <ul>
-        <li>Description: {{ task_lists.description }} {{ task_lists.time }}</li>
+        <li>Description: {{ task_lists.description }} </li>
+        <li>Created @ {{ task_lists.time }}</li>
         <li>Is it complete? {{ task_lists.complete }}</li>
     </ul>
     
