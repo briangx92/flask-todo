@@ -17,30 +17,21 @@ def create_app(): #Factory app
     @app.route('/', methods=['GET', 'POST'])
     def index():
         
-        task_date = datetime.now()
-
+        task_date = datetime.today()
 
         if request.method == 'POST':
             task = request.form['task']
             description = request.form['description']
             task_dict = [{'task': task, 'description': description, 'time': task_date, 'complete': False}]
-            return render_template('todo.html',task_dict=task_dict, task_date=task_date)
-        else:
+            return render_template('index.html',task_dict=task_dict, task_date=task_date)
+        elif request.method == 'GET':
             return render_template('index.html')
         
 
-        
-        
-
-
+        cur.execute("INSERT INTO todos (task, created, complete) VALUES (%s,%s,%s)", (task, task_date, False))
+        conn.commit()
         return render_template('index.html')
 
-    @app.route('/todo', methods=['GET', 'POST'])
-    def todo():
-
-        if request.method == 'GET':
-            return render_template('todo.html')
-        return render_template('todo.html')
     return app
 
 
