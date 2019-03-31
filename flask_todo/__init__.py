@@ -12,7 +12,7 @@ def create_app(): #Factory app
 
     cur = conn.cursor()
 
-    cur.execute("CREATE TABLE task (task varchar(30), description varchar(100), created varchar(30));")
+    cur.execute("CREATE TABLE todos (task varchar(30), description varchar(100), created varchar(30));")
     
     @app.route('/', methods=['GET', 'POST'])
     def index():
