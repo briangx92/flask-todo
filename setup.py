@@ -8,6 +8,9 @@ setup(
     zip_safe=False,
     install_requires=[
         'flask',
+        'guinicorn',
+        'psycopg2',
+
     ],
     extras_require={
         'test': [
